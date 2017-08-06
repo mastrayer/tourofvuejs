@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      문자열: {{ message }}<br>
+      문자열 역순: {{ message.split('').reverse().join('') }}
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello, Vue!'
+        }
+      });
+    </script>
+  </body>
+</html>

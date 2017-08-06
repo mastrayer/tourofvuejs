@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input v-model="fullName"><br>
+      First Name: {{ firstName }}<br>
+      Last Name: {{ lastName }}<br>
+      Full Name: {{ fullName }}
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          firstName: 'Lee',
+          lastName: 'Sun-Hyoup'
+        },
+        computed: {
+          fullName: {
+            get: function () {
+              return this.firstName + ' ' + this.lastName;
+            },
+            set: function (newValue) {
+              var names = newValue.split(' ');
+              this.firstName = names[0];
+              this.lastName = names[names.length - 1];
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

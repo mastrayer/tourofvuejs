@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2>성공!</h2>
+      <ul>
+        <li v-for="todo in todos" v-if="todo.isComplete">
+          {{ todo.contents }}
+        </li>
+      </ul>
+
+      <h2>아직...</h2>
+      <ul>
+        <li v-for="todo in todos" v-if="!todo.isComplete">
+          {{ todo.contents }}
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          todos: [{
+            contents: 'Vue.js 정복하기!',
+            isComplete: true
+          }, {
+            contents: 'JavaScript 정복하기!',
+            isComplete: false
+          }, {
+            contents: '시장에서 장보기',
+            isComplete: false
+          }]
+        }
+      });
+    </script>
+  </body>
+</html>

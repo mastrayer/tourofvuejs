@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="checkbox" id="check1" value="맥북 15인치 레티나" v-model="checked">
+      <label for="check1">맥북 15인치 레티나</label>
+      <input type="checkbox" id="check2" value="퀸사이즈 침대" v-model="checked">
+      <label for="check2">퀸사이즈 침대</label>
+      <input type="checkbox" id="check3" value="65인치 UHD 벽걸이형 티비" v-model="checked">
+      <label for="check3">65인치 UHD 벽걸이형 티비</label>
+      <br>
+      <span>장바구니: {{ checked }}</span>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          checked: []
+        }
+      });
+    </script>
+  </body>
+</html>

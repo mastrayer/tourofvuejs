@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="checkbox" v-model="checkboxModel" v-bind:true-value="trueValue" v-bind:false-value="falseValue">
+      {{ checkboxModel }}
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          checkboxModel: 'hello',
+          trueValue: 'hello',
+          falseValue: 'world'
+        }
+      });
+    </script>
+  </body>
+</html>

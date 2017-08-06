@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <span v-if="alphabet == 'A'">A입니다</span>
+      <span v-else-if="alphabet == 'B'">B입니다</span>
+      <span v-else>그 외 나머지 입니다.</span>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          alphabet: 'D'
+        }
+      });
+    </script>
+  </body>
+</html>

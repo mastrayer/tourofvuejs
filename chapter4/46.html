@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <select v-model="selectModel">
+        <option v-for="artist in artists" v-bind:value="artist">{{ artist }}</option>
+      </select>
+      {{ selectModel }}
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          selectModel: 'Sarah McLachlan',
+          artists: [
+            "Sister’s barbershop",
+            "Sarah McLachlan",
+            "Coldplay",
+            "Tori Kelly",
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>

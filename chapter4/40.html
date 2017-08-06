@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <select v-model="selected">
+        <option disabled value="">당신의 혈액형은?</option>
+        <option v-for="type in ['A', 'B', 'O', 'AB']" v-bind:value="type">{{ type }}</option>
+      </select>
+      <p>{{ selected }}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          selected: ''
+        }
+      });
+    </script>
+  </body>
+</html>

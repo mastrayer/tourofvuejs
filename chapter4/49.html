@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model.number="numberModel">
+      <p>{{ typeof numberModel }}<p>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          numberModel: '1234xyz',
+        }
+      });
+    </script>
+  </body>
+</html>

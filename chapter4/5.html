@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <a v-bind:href="naverLink">네이버 링크</a><br>
+      <a v-bind:href="githubLink">깃허브 링크</a>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          naverLink: 'http://www.naver.com/',
+          githubLink: 'https://github.com/'
+        }
+      });
+    </script>
+  </body>
+</html>

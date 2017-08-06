@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="shuffle">섞기</button>
+      <ul>
+        <li v-for="message in messages">
+          {{ message }}
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          messages: []
+        },
+        methods: {
+          shuffle: function () {
+            var temp = 0;
+
+            for (var i = 0; i < this.messages.length; i += 1) {
+                var randomIndex = Math.floor(Math.random() * (i + 1)); 
+                temp = this.messages[randomIndex];
+                Vue.set(this.messages, randomIndex, this.messages[i]);
+                Vue.set(this.messages, i, temp);
+            }
+          }
+        },
+        mounted: function () {
+          for (var i = 0; i < 10; i += 1) {
+            this.messages.push('메세지 ' + i);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

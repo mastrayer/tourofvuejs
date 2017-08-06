@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="index in 100">
+          {{ index }}
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app'
+      });
+    </script>
+  </body>
+</html>

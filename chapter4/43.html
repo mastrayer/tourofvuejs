@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      {{ message }}
+      <input @input="inputMessage" :value="message"> <!-- 한글을 입력해보세요! -->
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: '안녕하세요!'
+        },
+        methods: {
+          inputMessage: function (event) {
+            this.message = event.target.value;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

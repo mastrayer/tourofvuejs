@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="issue1">Issue 1</button>
+      <button @click="solution1">Solution 1</button>
+      <button @click="issue2">Issue 2</button>
+      <button @click="solution2">Solution 2</button>
+
+      <div v-for="item in items">
+        {{ item }}
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          items: [1, 2, 3, 4, 5, 6, 7, 8]
+        },
+        methods: {
+          issue1: function () {
+            // 이렇게하면 다시 렌더링되지 않습니다
+            this.items.length = 3;
+          },
+          solution1: function () {
+            this.items.splice(3);
+          },
+          issue2: function () {
+            // 이렇게하면 다시 렌더링되지 않습니다
+            this.items[2] = 33;
+          },
+          solution2: function () {
+            // 아래와 같이 두 가지의 방법이 있습니다.
+            Vue.set(this.items, 2, 33);
+            this.items.splice(2, 1, 33); 
+          },
+        }
+      });
+    </script>
+  </body>
+</html>

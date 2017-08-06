@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <label>
+        이름:
+        <input v-model="name" value="Lee Sun-Hyoup">
+      </label>
+      <br>
+      <label>
+        메일을 받아보시겠습니까?: 
+        <input type="checkbox" v-model="acceptMail" checked>
+      </label>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          name: 'Kim Jihwan',
+          acceptMail: false
+        }
+      });
+    </script>
+  </body>
+</html>

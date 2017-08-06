@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model.lazy="lazyModel">
+      <p>{{ lazyModel }}<p>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          lazyModel: 'hello',
+        }
+      });
+    </script>
+  </body>
+</html>

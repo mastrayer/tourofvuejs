@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <a href="https://www.google.com">link 1</a>
+      <a href="https://www.google.com" @click.prevent>link 2</a>
+      <a href="https://www.google.com" @click="prevent">link 3</a>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          prevent: function () {
+            event.preventDefault();
+          }   
+        },
+      });
+    </script>
+  </body>
+</html>

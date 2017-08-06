@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="todayAlert">지금 시간은?</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          messages: []
+        },
+        methods: {
+          todayAlert: function () {
+            alert(new Date());
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

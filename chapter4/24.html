@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+    <style>
+      div { padding:20px; }
+      #outer { background: blue; }
+      #middle { background: green; }
+      #inner { background: white; }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="outer" @click="func1">
+        1
+        <div id="middle" @click="func2">
+          2
+          <div id="inner" @click="func3">
+            3
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          func1: function () {
+            console.log('1 - outer');
+          },
+          func2: function () {
+            console.log('2 - middle');
+          },
+          func3: function () {
+            console.log('3 - inner');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

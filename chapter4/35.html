@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <p>Counter: {{ counter }}</p>
+      <button @click="counter += 1">클릭</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          counter: 0
+        }
+      });
+    </script>
+  </body>
+</html>

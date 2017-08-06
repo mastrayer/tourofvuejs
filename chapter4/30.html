@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" @keydown="preventKey">
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          preventKey: function () {
+            if(event.keyCode == 8 || event.keyCode == 46)
+              event.preventDefault();
+          },
+        }
+      });
+    </script>
+  </body>
+</html>

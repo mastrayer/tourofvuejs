@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <label>
+        input[type=text]:<br>
+        <input type="text" v-model="textMessage">
+        <p>{{ textMessage }}</p>
+      </label>
+
+      <hr>
+
+      <label>
+        textarea:<br>
+        <textarea v-model="textareaMessage"></textarea>
+        <p style="white-space: pre">{{ textareaMessage }}</p>
+      </label>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          textMessage: 'Hello, Vue!!',
+          textareaMessage: 'Hello,\nVue!'
+        }
+      });
+    </script>
+  </body>
+</html>

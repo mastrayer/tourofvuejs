@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="radio" id="male" value="male" v-model="gender">
+      <label for="male">남자</label>
+      <br>
+      <input type="radio" id="female" value="female" v-model="gender">
+      <label for="female">여자</label>
+      <br>
+      <span>선택: {{ gender }}</span>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          gender: ''
+        }
+      });
+    </script>
+  </body>
+</html>

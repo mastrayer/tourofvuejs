@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1>ToDo List!</h1>
+      <template v-if="isVisibility">
+        <h2>성공!</h2>
+        <ul>
+          <li v-for="todo in todos" v-if="todo.isComplete">
+            {{ todo.contents }}
+          </li>
+        </ul>
+
+        <h2>아직...</h2>
+        <ul>
+          <li v-for="todo in todos" v-if="!todo.isComplete">
+            {{ todo.contents }}
+          </li>
+        </ul>
+      </template>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          isVisibility: false,
+          todos: [{
+            contents: 'Vue.js 정복하기!',
+            isComplete: true
+          }, {
+            contents: 'JavaScript 정복하기!',
+            isComplete: false
+          }, {
+            contents: '시장에서 장보기',
+            isComplete: false
+          }]
+        }
+      });
+    </script>
+  </body>
+</html>

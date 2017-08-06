@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" @keyup.65="triggerA">
+      <input type="text" @keyup.a="triggerA">
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          triggerA: function () {
+            alert('a 입력');
+          }
+        }
+      });
+     Vue.config.keyCodes.a = 65;
+    </script>
+  </body>
+</html>

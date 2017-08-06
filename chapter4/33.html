@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" @keyup.shift="triggerAll">
+      <input type="text" @keyup.shift.space="triggerSpace">
+      <input type="text" @click.shift="triggerClick">
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          triggerAll: function () {
+            alert(event.key);
+          },
+          triggerSpace: function () {
+            alert('Shift + space');
+          },
+          triggerClick: function () {
+            alert('Shift + Click');
+          },
+        }
+      });
+    </script>
+  </body>
+</html>

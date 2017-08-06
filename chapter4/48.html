@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model.trim="trimModel">
+      <p>{{ trimModel }}<p>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          trimModel: '          trim       ',
+        }
+      });
+    </script>
+  </body>
+</html>

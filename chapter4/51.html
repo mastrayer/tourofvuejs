@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <p>필터 미적용: {{ message }}</p>
+      <p>필터 적용: {{ message | ellipsis(10, '...') }}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: '안녕하세요. 오늘도 Vue.js를 열심히 공부해봅시다!'
+        },
+        filters: {
+          ellipsis: function (value, length, string) {
+            return value.slice(0, length) + string;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

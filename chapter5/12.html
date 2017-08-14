@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <simple-component :price="price"></simple-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      var simpleComponent = {
+        props: {
+          name: {
+            type: String,
+            default: '구형 스마트폰' // 기본 값을 정의할 수 있습니다.
+          },
+          price: {
+            type: Number,
+            validator: function (value) {
+              return value >= 500000 // value의 값이 500000 이상이 아니면 검증 실패입니다.
+            }
+          },
+          message: {
+           type: [String, Number],
+           required: true // 반드시 props로 전달해야 합니다. 전달하지 않으면 검증 실패입니다.
+          },
+          object: {
+            type: Object,
+            default: function () { // 타입이 Object인 경우 함수를 통해 반환해야 합니다.
+              return { message: '메세지!' };
+            }
+          }
+        },
+        template: '<div>{{ name }}, {{ price }}원, {{ message }}</div>'
+      };
+
+      new Vue({
+        el: '#app',
+        data: {
+          name: '최신형 스마트폰',
+          price: 497000,
+          message: '최신형 스마트폰 싸게 팝니다!'
+        },
+        components: {
+          'simple-component': simpleComponent
+        }
+      });
+    </script>
+  </body>
+</html>

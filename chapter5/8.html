@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model="message">
+      <simple-component :message="message"></simple-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      var simpleComponent = {
+        props: ['message'],
+        template: '<div>{{ message }}</div>'
+      };
+
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello, Vue!'
+        },
+        components: {
+          'simple-component': simpleComponent
+        }
+      });
+    </script>
+  </body>
+</html>

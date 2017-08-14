@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <counter-component></counter-component>
+      <counter-component></counter-component>
+      <counter-component></counter-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      Vue.component('counter-component', {
+        template: '<button @click="counter += 1">{{ counter }}</button>',
+        data: function () {
+          return { counter: 0 }
+        }
+      });
+      new Vue({
+        el: '#app'
+      });
+    </script>
+  </body>
+</html>

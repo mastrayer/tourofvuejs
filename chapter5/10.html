@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <simple-component :price="price"></simple-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      var simpleComponent = {
+        props: ['price'],
+        template: '<div><p>가격: {{ price }}</p><p>할인된 가격: {{ discountPrice }}</p></div>',
+        computed: {
+          discountPrice: function () {
+            return this.price * 0.7;
+          }
+        }
+      };
+
+      new Vue({
+        el: '#app',
+        data: {
+          price: 125000
+        },
+        components: {
+          'simple-component': simpleComponent
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <simple-component :name="name" :price="price" :message="message"></simple-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script> <!-- 개발용 빌드 파일을 사용해야 합니다. -->
+    <script>
+      var simpleComponent = {
+        props: {
+          name: String, // String 타입만 가능합니다.
+          price: Number, // Number 타입만 가능합니다.
+          message: [String, Number] // 리스트를 통해 여러 타입을 허용할 수 있습니다.
+        },
+        template: '<div>{{ name }}, {{ price }}원, {{ message }}</div>'
+      };
+
+      new Vue({
+        el: '#app',
+        data: {
+          name: '최신형 스마트폰',
+          price: 897000,
+          message: '최신형 스마트폰 싸게 팝니다!'
+        },
+        components: {
+          'simple-component': simpleComponent
+        }
+      });
+    </script>
+  </body>
+</html>

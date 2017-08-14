@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+
+    <!-- 예제 작성을 위해 bootstrap을 사용 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="container">
+        <ul class="nav nav-tabs">
+          <li @click="currentView = 'home'"><a href="#">Home</a></li>
+          <li @click="currentView = 'profile'"><a href="#">Profile</a></li>
+          <li @click="currentView = 'messages'"><a href="#">Messages</a></li>
+        </ul>
+        <component :is="currentView"></component>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+
+    <script type="text/x-template" id="home-component-template">
+      <div>
+        This is home!
+      </div>
+    </script>
+
+    <script type="text/x-template" id="profile-component-template">
+      <div>
+        Name: Lee Sun-Hyoup<br>
+        Age: 24<br>
+        Weight: 70kg
+      </div>
+    </script>
+
+    <script type="text/x-template" id="messages-component-template">
+      <div>
+        <ul>
+          <li>First</li>
+          <li>Second</li>
+          <li>Third</li>
+        </ul>
+      </div>
+    </script>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          currentView: 'home'
+        },
+        components: {
+          home: {
+            template: '#home-component-template'
+          },
+          profile: {
+            template: '#profile-component-template'
+          },
+          messages: {
+            template: '#messages-component-template'
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

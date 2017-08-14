@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <todo-component></todo-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    
+    <!-- 템플릿 부분을 분리하였습니다. -->
+    <script type="text/x-template" id="todo-component">
+      <div>
+        <h1>2017년의 목표</h1>
+        <ul>
+          <li v-for="todo in todos">
+            {{ todo }}
+          </li>
+        </ul>
+      </div>
+    </script>
+
+    <script>
+      var todoComponent = {
+        template: '#todo-component', // id 선택자를 이용
+        data: function () {
+          return {
+            todos: [
+              '열심히 일하기',
+              '효도하기',
+              '연애하기'
+            ]
+          }
+        }
+      };
+      new Vue({
+        el: '#app',
+        components: {
+          'todo-component': todoComponent
+        }
+      });
+    </script>
+  </body>
+</html>

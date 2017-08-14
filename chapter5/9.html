@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <simple-component :initial-counter="counter"></simple-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      var simpleComponent = {
+        props: ['initialCounter'],
+        template: '<button @click="addCounter">{{ counter }}</button>',
+        data: function () {
+          return {
+            counter: this.initialCounter
+          }
+        },
+        methods: {
+          addCounter: function () {
+            this.counter += 1;
+          }
+        }
+      };
+
+      new Vue({
+        el: '#app',
+        data: {
+          counter: 0
+        },
+        components: {
+          'simple-component': simpleComponent
+        }
+      });
+    </script>
+  </body>
+</html>

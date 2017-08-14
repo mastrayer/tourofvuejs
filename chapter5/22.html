@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+
+    <!-- 예제 작성을 위해 bootstrap을 사용 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="container">
+        <ul class="nav nav-tabs">
+          <li @click="currentView = 'first'"><a href="#">First</a></li>
+          <li @click="currentView = 'second'"><a href="#">Second</a></li>
+        </ul>
+        <component :is="currentView"></component>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+
+    <script type="text/x-template" id="first-component-template">
+      <div>
+        This is first component!
+      </div>
+    </script>
+
+    <script type="text/x-template" id="second-component-template">
+      <div>
+        <input type="text">
+      </div>
+    </script>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          currentView: 'first'
+        },
+        components: {
+          first: {
+            template: '#first-component-template'
+          },
+          second: {
+            template: '#second-component-template'
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

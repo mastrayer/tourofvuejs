@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1>영단어 공부</h1>
+      <table>
+        <row-component></row-component>
+        <row-component></row-component>
+        <row-component></row-component>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      var rowComponent = {
+        template: '<tr><td>사과</td><td>Apple</td></tr>'
+      };
+      new Vue({
+        el: '#app',
+        components: {
+          'row-component': rowComponent
+        }
+      });
+    </script>
+  </body>
+</html>

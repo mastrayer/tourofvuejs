@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <email-input v-model="email"></email-input>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script type="text/x-template" id="email-input-template">
+      <div>
+        <label>
+          <input type="text" :value="value" v-on:input="validate">
+          상태: {{ statusMessage }}
+        </label>
+      </div>
+    </script>
+    <script>
+      Vue.component('email-input', {
+        props: ['value'],
+        template: '#email-input-template',
+        data: function () {
+          return { status: false };
+        },
+        computed: {
+          statusMessage: function () {
+            return this.status ? '가능' : '불가능';
+          }
+        },
+        methods: {
+          validate: function (event) {
+            this.value = event.target.value;
+            if (!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(this.value)) {
+              // 이메일 형태가 아닌 경우
+              this.status = false;
+            } else {
+              // 이메일 형태일 경우
+              this.status = true;
+            }
+          }
+        }
+      });
+
+      new Vue({
+        el: '#app',
+        data: {
+          email: ''
+        }
+      });
+    </script>
+  </body>
+</html>

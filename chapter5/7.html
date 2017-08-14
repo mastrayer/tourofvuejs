@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- props로 정의된 message라는 이름의 속성으로 데이터를 전달합니다. -->
+      <simple-component message="Hello, Vue!"></simple-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      var simpleComponent = {
+        // props를 정의합니다.
+        props: ['message'],
+        // props를 데이터 처럼 템플릿 내부에서 사용할 수 있습니다.
+        template: '<div>{{ message }}</div>'
+      };
+
+      new Vue({
+        el: '#app',
+        components: {
+          'simple-component': simpleComponent
+        }
+      });
+    </script>
+  </body>
+</html>

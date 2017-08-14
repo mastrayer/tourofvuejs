@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <static-component></static-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+
+    <script type="text/x-template" id="static-component-template">
+      <div v-once>
+        <h1>이용약관</h1>
+        <p>이용약관 내용입니다.</p>
+      </div>
+    </script>
+
+    <script>
+      Vue.component('static-component', {
+        template: '#static-component-template'
+      });
+      new Vue({
+        el: '#app'
+      });
+    </script>
+  </body>
+</html>

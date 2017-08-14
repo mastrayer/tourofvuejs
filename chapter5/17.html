@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <post>
+        안녕하세요. 이곳에는 내용이 들어갑니다. 오늘도 Vue.js를 배워봅시다! <!-- 이 템플릿이 `slot`에 전달됩니다. -->
+      </post>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script type="text/x-template" id="post-template"> <!-- post 템플릿 -->
+      <div>
+        <h1>제목 입니다.</h1>
+        <p>
+          <slot></slot>
+        </p>
+      </div>
+    </script>
+    <script>
+      Vue.component('post', {
+        template: '#post-template'
+      });
+
+      new Vue({
+        el: '#app'
+      });
+    </script>
+  </body>
+</html>

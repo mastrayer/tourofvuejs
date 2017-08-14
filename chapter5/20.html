@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <sample-component>
+        <template scope="props">
+          <li>{{ props.fruitName }}: {{ props.price }}</li>
+        </template>
+      </sample-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script type="text/x-template" id="sample-component-template">
+      <div>
+        <ul>
+          <!-- 'name' 옵션과 겹칠 수 있기에 'fruit-name'으로 사용 -->
+          <slot v-for="item in fruits"
+                :fruit-name="item.name" 
+                :price="item.price"></slot>
+        </ul>
+      </div>
+    </script>
+    <script>
+      Vue.component('sample-component', {
+        template: '#sample-component-template',
+        data: function () {
+          return {
+            fruits: [
+              {
+                name: 'Apple',
+                price: 1500,
+              },
+              {
+                name: 'Banana',
+                price: 900
+              }
+            ]
+          };
+        }
+      });
+
+      new Vue({
+        el: '#app'
+      });
+    </script>
+  </body>
+</html>

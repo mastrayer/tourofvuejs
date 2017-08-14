@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      Hello, Vue!
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      var mixin = {
+        created: function () {
+          this.alert()
+        },
+        methods: {
+          alert: function () {
+            alert('Hello, Vue!');
+          }
+        }
+      }
+
+      new Vue({
+        mixins: [mixin],
+        el: '#app'
+      });
+    </script>
+  </body>
+</html>

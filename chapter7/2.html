@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-focus>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        directives: {
+          focus: {
+            inserted: function (element) {
+              element.focus();
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

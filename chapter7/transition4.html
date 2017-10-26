@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+    <style>
+      .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s
+      }
+      .fade-enter, .fade-leave-to {
+        opacity: 0
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="show = !show">
+        Toggle render
+      </button>
+      <transition name="fade" appear>
+        <p v-if="show">hello</p>
+      </transition>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          show: true
+        }
+      })
+    </script>
+  </body>
+</html>

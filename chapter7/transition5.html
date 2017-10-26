@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+    <style>
+      .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s
+      }
+      .fade-enter, .fade-leave-to {
+        opacity: 0
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <transition name="fade">
+        <button v-if="off" @click="off = !off" key="off">
+          Off
+        </button>
+        <button v-if="!off" @click="off = !off" key="on">
+          On
+        </button>
+      </transition>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.3"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          off: true
+        }
+      })
+    </script>
+  </body>
+</html>

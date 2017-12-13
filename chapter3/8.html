@@ -6,13 +6,12 @@
 
   <body>
     <div id="app">
-      <input v-model="search"><br>
-      검색 결과:
-      <ul>
-        <li>
-          ...
-        </li>
-      </ul>
+      <input v-model="firstName"><br>
+      <input v-model="lastName"><br>
+      <input v-model="fullName"><br>
+      First Name: {{ firstName }}<br>
+      Last Name: {{ lastName }}<br>
+      Full Name: {{ fullName }}
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -20,14 +19,21 @@
       new Vue({
         el: '#app',
         data: {
-          search: ''
+          firstName: 'Lee',
+          lastName: 'Sun-Hyoup',
+          fullName: 'Lee Sun-Hyoup'
         },
         watch: {
-          search: function (value) {
-            this.$http.get('/search?value' + value)
-              .then(function (response) {
-                /* ... */
-              });
+          firstName: function (val) {
+            this.fullName = val + ' ' + this.lastName
+          },
+          lastName: function (val) {
+            this.fullName = this.firstName + ' ' + val
+          },
+          fullName: function (val) {
+            var names = val.split(' ');
+            this.firstName = names[0];
+            this.lastName = names[names.length - 1];
           }
         }
       });

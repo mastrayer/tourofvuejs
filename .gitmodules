@@ -1,0 +1,3 @@
+[submodule "notevuek"]
+	path = notevuek
+	url = https://github.com/mastrayer/notevuek.git
